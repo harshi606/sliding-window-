@@ -15,5 +15,9 @@ I will be pushing some common problems related to sliding window so that we can 
 I will try my best to update all possible questions
 
 1. Given an array of integers Arr of size N and a number K. Return the maximum sum of a subarray of size K.(GFG,Basic)
+
+
 question: https://practice.geeksforgeeks.org/problems/max-sum-subarray-of-size-k5313/1
+
+
 solution: https://ide.geeksforgeeks.org/wHhwysn3EV
