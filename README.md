@@ -21,3 +21,81 @@ question: https://practice.geeksforgeeks.org/problems/max-sum-subarray-of-size-k
 
 
 solution: https://ide.geeksforgeeks.org/wHhwysn3EV
+
+2.Given a word pat and a text txt. Return the count of the occurences of anagrams of the word in the text.
+
+question: https://practice.geeksforgeeks.org/problems/count-occurences-of-anagrams5839/1
+
+
+solution:
+#include <bits/stdc++.h>
+
+using namespace std;
+
+
+ // } Driver Code Ends
+//User function template for C++
+class Solution{
+public:
+	int search(string pat, string txt) {
+	    // code here
+	   unordered_map <char, int> count;
+	   
+	    int counter;
+	    int i=0;
+	    int j=0;
+	    int k = pat.size();
+	    for(auto it:pat){
+	        count[it]++;
+	    }
+	    
+	    counter = count.size();
+      int result=0;
+	    
+	    while( j < txt.size()){
+	        if(count.find(txt[j]) != count.end()){
+	            count[txt[j]]--;
+	
+	        if(count[txt[j]] == 0)
+	            counter--;
+	        }
+	        
+	        if(j-i+1 < k)
+	            j++;
+	        
+	       else if(j-i+1 == k){
+	            if(counter == 0)
+	                result++;
+	            
+	       if(count.find(txt[i]) != count.end()){
+	           count[txt[i]]++;
+	       
+	       if(count[txt[i]] == 1)
+	           counter++;
+	       }
+	       
+	       i++;
+	       j++;
+	       
+	        }
+	    }
+	    
+	    return result;
+	}
+
+};
+
+// { Driver Code Starts.
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        string pat, txt;
+        cin >> txt >> pat;
+        Solution ob;
+        auto ans = ob.search(pat, txt);
+        cout << ans << "\n";
+    }
+    return 0;
+}  // } Driver Code Ends
